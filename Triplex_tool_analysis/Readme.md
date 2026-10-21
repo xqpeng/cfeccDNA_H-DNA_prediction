@@ -1,10 +1,9 @@
-Introduction
+# Introduction
 This is a pipeline for identification and analysis of H-DNA (triplex DNA) sites
 from Same-Strand 5′ Ends fragments with endpoint distance less than 5 bp. 
 The pipeline covers the entire workflow from format conversion, H-DNA structural searching, and multi-dimensional statistical visualization.
-
-Getting Started
-Hardware Requirements
+## Getting Started
+## Hardware requirements
 CPU: Multi-core processor recommended (The pipeline is optimized for 18-thread parallel execution).
 RAM: 16GB or higher recommended to support large-scale genomic in-memory vectorized operations.
 Prerequisites
@@ -16,10 +15,10 @@ Bioconductor: TriplexR (core search engine), Biostrings (sequence manipulation).
 CRAN: tidyverse, ggplot2, ggpubr, data.table (high-speed processing), stringi (fast pattern matching), parallel (cluster management).
  
 
-Usage & Pipeline Steps
+## Usage & Pipeline Steps
 
-Phase 1: Preprocessing
-Step 1: Format Conversion 
+### Phase 1: Preprocessing
+**Step 1: Format Conversion** 
 Script: sequences_to_fasta.py <Target_sequences_dir>
 Function: Converts the Same-Strand 5′ Ends fragments in the Target_sequences directory to standardized FASTA format.
 Input parameter:
@@ -34,7 +33,7 @@ Output: Standardized FASTA files generated in the output directory.
 
 
 
-Step 2: Proximity Filtering 
+**Step 2: Proximity Filtering** 
 Script: filter_5bp.R <Input_FASTA_Dir> <5bp_ID_List_Dir> <Output_Dir>
 Input: Input_FASTA_Dir (from Step 1) and LS_5bp reference list.
 Input Parameters:
@@ -45,8 +44,8 @@ Output: Refined FASTA files saved in the <Output_Dir>.
 Function: Filters the standardized FASTA sequences using the LS_5bp reference ID lists. It extracts and retains only the sequences identified as having <5bp gaps, generating a clean dataset for high-efficiency Triplex search in the next step.
 
 
-Phase 2: Triplex Identification
-Step 3: Structural Search 
+### Phase 2: Triplex Identification
+**Step 3: Structural Search** 
 Script: triplex_parallel_search_pipeline.R <FASTA_Dir>, <Results_Directory>
 Input parameter:
 <Refined_FASTA_Dir>: Directory containing the FASTA files from Step 2.
@@ -57,8 +56,8 @@ all_triplex_sequences_detailed.csv: Detailed structural components including Ste
 analysis_summary.csv: Global sequence metrics and H-DNA detection status (AnalysisStatus).
 
 
-Phase 3: Feature Extraction & Optimization
-Step 4: Best-Score Filtering 
+### Phase 3: Feature Extraction & Optimization
+**Step 4: Best-Score Filtering** 
 Script: triplex_filter_max.py <batch_results_Final_DocCorrect2_dir>
 Function: Parallelly filters the highest-scoring triplex for each sequence to generate the best_triplex_sequences_detailed.csv.
 Input parameter:
@@ -75,8 +74,8 @@ batch_results_Final_DocCorrect2/
 …
 Output: A best_triplex_sequences_detailed.csv file is added to each sample's folder.
 
-Visualization & Statistics
-Step 5: Detection Rate Analysis
+### Visualization & Statistics###
+**Step 5: Detection Rate Analysis**
 Script: triplex_detection_stat_viz.R <batch_results_Final_DocCorrect2_dir>, < 5093_README.txt>(Grouping_File)
 Function: Calculates and compares the H-DNA detection rate (percentage of reads containing triplexes) across different biological groups (Control, HCC, HBV, etc.).
 Input parameter:
@@ -93,7 +92,7 @@ batch_results_Final_DocCorrect2/
 |         |——best_triplex_sequences_detailed.csv
 …
 
-Step 6: Score Distribution Analysis
+**Step 6: Score Distribution Analysis**
 Script: triplex_score_density_viz.R <batch_results_Final_DocCorrect2_dir>, <5093_README.txt >(Grouping_File)
 Function: Generates density plots to analyze the stability scores of identified triplex structures, highlighting thermodynamic differences between groups.
 Input Files: best_triplex_sequences_detailed.csv, 5093_README.txt(Grouping File).
@@ -111,7 +110,7 @@ batch_results_Final_DocCorrect2/
 |         |——best_triplex_sequences_detailed.csv
 …
 
-Step 7: Length Distribution Analysis
+**Step 7: Length Distribution Analysis**
 Script: triplex_length_distribution_viz.R <batch_results_Final_DocCorrect2_dir>, <5093_README.txt >
 Function: Analyzes the physical length characteristics of triplexes to determine if specific length motifs are associated with specific conditions.
 Input parameter:
@@ -128,7 +127,7 @@ batch_results_Final_DocCorrect2/
 |         |——best_triplex_sequences_detailed.csv
 …
 
-Step 8: Positional Mapping (Distance to 5' End)
+**Step 8: Positional Mapping (Distance to 5' End)**
 Script: triplex_vectorized_mapping_fast.R. <batch_results_Final_DocCorrect2_dir>、<Refined_FASTA_Dir ><5093_README.txt>(Grouping_File)
 Function: Uses high-speed vectorized mapping to calculate the precise physical distance from each H-DNA site to the nearest genomic 5' end, revealing fragmentomic positioning patterns.
 Input Files: analysis_summary.csv, best_triplex_sequences_detailed.csv, 5093_README.txt (Grouping File), and Refined FASTA files (from Step 2).
