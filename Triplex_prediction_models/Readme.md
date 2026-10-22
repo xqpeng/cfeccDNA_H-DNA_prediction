@@ -4,7 +4,7 @@ This fold contains the official PyTorch & Scikit-Learn implementations for bench
 
 
 ## Repository Structure
-The project is organized into modular directories corresponding to each model family, ensuring native compatibility with Hugging Face Transformers, PyTorch, and Scikit-Learn ecosystems:\
+The project is organized into modular directories corresponding to each model family, ensuring native compatibility with Hugging Face Transformers, PyTorch, and Scikit-Learn ecosystems:
 
         ./
         ├──CNN_BiLSTM/
