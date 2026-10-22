@@ -1,6 +1,8 @@
 # Introduction
 Models for H-DNA Sequence Identification
 This fold contains the official PyTorch & Scikit-Learn implementations for benchmarking deep learning architectures and traditional machine learning baselines on high-throughput H-DNA sequence prediction datasets. 
+
+
 ## Repository Structure
 The project is organized into modular directories corresponding to each model family, ensuring native compatibility with Hugging Face Transformers, PyTorch, and Scikit-Learn ecosystems:\
 
@@ -24,16 +26,21 @@ The project is organized into modular directories corresponding to each model fa
 
 ## Environment & Installation
 Ensure you have Python 3.9+ and CUDA 11.8/12.1 installed. Install all necessary dependencies via:
-git clone https://github.com/xqpeng/cfeccDNA_H-DNA_prediction.git
-cd cfeccDNA_H-DNA_prediction/Triplex_prediction_models
-pip install -r requirements.txt
+    
+    git clone https://github.com/xqpeng/cfeccDNA_H-DNA_prediction.git
+
+    cd cfeccDNA_H-DNA_prediction/Triplex_prediction_models
+
+    pip install -r requirements.txt
 
 ## Data Preparation
 Place your train, validation, and test datasets in the ./data directory. All CSV files must contain at least two columns:
-**sequence**: Raw DNA nucleotide sequence (e.g., AGCT...)
-**label**: Binary target indicator (0 or 1)
-Expected directory structure:
 
+**sequence**: Raw DNA nucleotide sequence (e.g., AGCT...)
+
+**label**: Binary target indicator (0 or 1)
+
+Expected directory structure:
 
         ./data/
         ├──train.csv
