@@ -103,16 +103,15 @@ Input parameter:
 <Grouping_File>: A grouping file defining the biological group for each sample.
 < batch_results_Final_DocCorrect2>: A directory containing the processed CSV files for all samples.
 
-batch_results_Final_DocCorrect2/
-├──analysis_TS_AB010
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv  
-│   ├──best_triplex_sequences_detailed.csv
-├──analysis_TS_AB020
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv 
-│   ├──best_triplex_sequences_detailed.csv
-…
+     batch_results_Final_DocCorrect2/
+     ├──analysis_TS_AB010
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv  
+     │   ├──best_triplex_sequences_detailed.csv
+     ├──analysis_TS_AB020
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv 
+     │   ├──best_triplex_sequences_detailed.csv
 
 **Step 7: Length Distribution Analysis**
 Script: triplex_length_distribution_viz.R <batch_results_Final_DocCorrect2_dir>, <5093_README.txt >
@@ -120,16 +119,17 @@ Function: Analyzes the physical length characteristics of triplexes to determine
 Input parameter:
 <Grouping_File>: A grouping file defining the biological group for each sample.
 < batch_results_Final_DocCorrect2>: A directory containing the processed CSV files for all samples.
-batch_results_Final_DocCorrect2/
-├──analysis_TS_AB010
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv  
-│   ├──best_triplex_sequences_detailed.csv
-├──analysis_TS_AB020
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv 
-│   ├──best_triplex_sequences_detailed.csv
-…
+
+     batch_results_Final_DocCorrect2/
+     ├──analysis_TS_AB010
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv  
+     │   ├──best_triplex_sequences_detailed.csv
+     ├──analysis_TS_AB020
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv 
+     │   ├──best_triplex_sequences_detailed.csv
+
 
 **Step 8: Positional Mapping (Distance to 5' End)**
 Script: triplex_vectorized_mapping_fast.R. <batch_results_Final_DocCorrect2_dir>、<Refined_FASTA_Dir ><5093_README.txt>(Grouping_File)
@@ -140,13 +140,13 @@ Input parameter:
 <Refined_FASTA_Dir>: The directory containing the refined/filtered FASTA sequences (from Step 2) used as coordinate references
 < Grouping_File >: The path to your grouping metadata file.
 
-batch_results_Final_DocCorrect2/
-├──analysis_TS_AB010
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv  
-│   ├──best_triplex_sequences_detailed.csv
-├──analysis_TS_AB020
-│   ├──all_triplex_sequences_detailed.csv
-│   ├──analysis_summary.csv 
-│   ├──best_triplex_sequences_detailed.csv
-…
+     batch_results_Final_DocCorrect2/
+     ├──analysis_TS_AB010
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv  
+     │   ├──best_triplex_sequences_detailed.csv
+     ├──analysis_TS_AB020
+     │   ├──all_triplex_sequences_detailed.csv
+     │   ├──analysis_summary.csv 
+     │   ├──best_triplex_sequences_detailed.csv
+

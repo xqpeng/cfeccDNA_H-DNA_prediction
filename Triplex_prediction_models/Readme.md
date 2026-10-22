@@ -4,21 +4,21 @@ This fold contains the official PyTorch & Scikit-Learn implementations for bench
 ## Repository Structure
 The project is organized into modular directories corresponding to each model family, ensuring native compatibility with Hugging Face Transformers, PyTorch, and Scikit-Learn ecosystems:
 
- .
- ├── CNN_BiLSTM/
- │   ├── cnn_bilstm.py             # Multi-scale Conv1D + BiLSTM baseline script
- │   ├── best_model.pth            # Trained model weights checkpoint
- ├── DNABERT2/
- │   ├── train_DNABERT2.py         # Fine-tuning entry point using HF Trainer & PEFT
- │   ├── config.json               # Model configuration file
- │   ├── tokenizer_config.json     # Tokenizer configuration specs
- ├── LKAN/
- │   ├── KANLinear.py              # PyTorch B-spline KAN layer implementation
- │   ├── run_LKAN.py               # LKAN architecture execution & evaluation pipeline
- │   ├── best_kan_baseline.pth     # Optimal LKAN model checkpoint
- ├── machine_learning.py           # Scalable ML benchmark (RF, XGBoost, LR) with 4-mer features
- ├── requirements.txt              # Environment dependencies
- └── README.md                     # Repository documentation
+    .
+    ├──CNN_BiLSTM/
+    │   ├──cnn_bilstm.py             # Multi-scale Conv1D + BiLSTM baseline script
+    │   ├──best_model.pth            # Trained model weights checkpoint
+    ├──DNABERT2/
+    │   ├──train_DNABERT2.py         # Fine-tuning entry point using HF Trainer & PEFT
+    │   ├──config.json               # Model configuration file
+    │   ├──tokenizer_config.json     # Tokenizer configuration specs
+    ├──LKAN/
+    │   ├──KANLinear.py              # PyTorch B-spline KAN layer implementation
+    │   ├──run_LKAN.py               # LKAN architecture execution & evaluation pipeline
+    │   ├──best_kan_baseline.pth     # Optimal LKAN model checkpoint
+    ├──machine_learning.py           # Scalable ML benchmark (RF, XGBoost, LR) with 4-mer features
+    ├──requirements.txt              # Environment dependencies
+    └──README.md                     # Repository documentation
  
  
 
@@ -30,15 +30,15 @@ pip install -r requirements.txt
 
 ## Data Preparation
 Place your train, validation, and test datasets in the ./data directory. All CSV files must contain at least two columns:
-• sequence: Raw DNA nucleotide sequence (e.g., AGCT...)
-• label: Binary target indicator (0 or 1)
+**sequence**: Raw DNA nucleotide sequence (e.g., AGCT...)
+**label**: Binary target indicator (0 or 1)
 Expected directory structure:
 
 
-./data/
-├── train.csv
-├── dev.csv
-└── test.csv
+    ./data/
+    ├──train.csv
+    ├──dev.csv
+    └──test.csv
 
 ## Usage & Quick Start
 1. **Fine-tuning DNABERT-2**
