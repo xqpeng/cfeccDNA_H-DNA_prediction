@@ -6,12 +6,15 @@ cfeccDNA_H-DNA_prediction contains scripts for linearized cell-free eccDNA (cf-e
 Scripts for mapping cfDNA sequences, extracting discordant and split alignments, and analyzing split alignments.
 
 ## Identical6merMotif_analysis
-Scripts to evaluate the enrichment of identical 6-mer end motifs in Same-Strand 5′ Ends fragments.
+This fold contains scripts for evaluating the enrichment of identical 6-mer end motifs in Same-Strand 5' Ends fragments.
 
 ## Triplex_tool_analysis
 This fold contians a pipeline for identification and analysis of H-DNA (triplex DNA) sites
 from Same-Strand 5' Ends fragments with endpoint distance less than 5 bp by using the Triplex package. 
 The pipeline covers the entire workflow from format conversion, H-DNA structural searching, and multi-dimensional statistical visualization.
+
+## Negative_sample_generation
+The script is used to generate negative samples for training dataset, valiation dataset, and test dataset.
 
 ## Triplex_prediction_models
 Models for H-DNA Sequence Identification.
