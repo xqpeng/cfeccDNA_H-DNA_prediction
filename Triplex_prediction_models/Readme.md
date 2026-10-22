@@ -3,18 +3,19 @@ Models for H-DNA Sequence Identification
 This fold contains the official PyTorch & Scikit-Learn implementations for benchmarking deep learning architectures and traditional machine learning baselines on high-throughput H-DNA sequence prediction datasets. 
 ## Repository Structure
 The project is organized into modular directories corresponding to each model family, ensuring native compatibility with Hugging Face Transformers, PyTorch, and Scikit-Learn ecosystems:
+
  .
  ├── CNN_BiLSTM/
  │   ├── cnn_bilstm.py             # Multi-scale Conv1D + BiLSTM baseline script
- │   └── best_model.pth            # Trained model weights checkpoint
+ │   ├── best_model.pth            # Trained model weights checkpoint
  ├── DNABERT2/
  │   ├── train_DNABERT2.py         # Fine-tuning entry point using HF Trainer & PEFT
  │   ├── config.json               # Model configuration file
- │   └── tokenizer_config.json     # Tokenizer configuration specs
+ │   ├── tokenizer_config.json     # Tokenizer configuration specs
  ├── LKAN/
  │   ├── KANLinear.py              # PyTorch B-spline KAN layer implementation
  │   ├── run_LKAN.py               # LKAN architecture execution & evaluation pipeline
- │   └── best_kan_baseline.pth     # Optimal LKAN model checkpoint
+ │   ├── best_kan_baseline.pth     # Optimal LKAN model checkpoint
  ├── machine_learning.py           # Scalable ML benchmark (RF, XGBoost, LR) with 4-mer features
  ├── requirements.txt              # Environment dependencies
  └── README.md                     # Repository documentation
@@ -32,13 +33,15 @@ Place your train, validation, and test datasets in the ./data directory. All CSV
 • sequence: Raw DNA nucleotide sequence (e.g., AGCT...)
 • label: Binary target indicator (0 or 1)
 Expected directory structure:
+
+
 ./data/
 ├── train.csv
 ├── dev.csv
 └── test.csv
 
 ## Usage & Quick Start
-### Fine-tuning DNABERT-2
+1. **Fine-tuning DNABERT-2**
 python DNABERT2/train_DNABERT2.py \
     --model_name_or_path zhihan1996/DNABERT-2-117M \
     --data_path ./data \
@@ -62,7 +65,7 @@ python DNABERT2/train_DNABERT2.py \
     --save_total_limit 2
 
 
-### Multi-scale CNN-BiLSTM Baseline
+2. **Multi-scale CNN-BiLSTM Baseline**
 python CNN_BiLSTM/cnn_bilstm.py \
     --data_dir ./data \
     --output_dir ./output \
@@ -72,7 +75,7 @@ python CNN_BiLSTM/cnn_bilstm.py \
     --max_len 150
 
 
-### Kolmogorov-Arnold Network (LKAN) Baseline
+3. **Kolmogorov-Arnold Network (LKAN) Baseline**
 python LKAN/run_LKAN.py \
     --data_dir ./data \
     --output_dir ./output \
@@ -81,14 +84,14 @@ python LKAN/run_LKAN.py \
     --lr 5e-4 \
     --epochs 10
 
-### Classical Machine Learning Benchmark
+4. **Classical Machine Learning Benchmark**
 python machine_learning.py \
     --train_path ./data/train.csv \
     --test_path ./data/test.csv \
     --output_dir ./output \
     --kmer 4
 
-### Evaluation Metrics
+5. **Evaluation Metrics**
 All models evaluate classification performance comprehensively on test sets using the following metrics:
 **AUPRC**: Area Under the Precision-Recall Curve (Primary Target Metric)
 **AUROC**: Area Under the Receiver Operating Characteristic

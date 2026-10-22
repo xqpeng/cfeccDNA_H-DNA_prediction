@@ -1,9 +1,5 @@
 # Introduction
-Cell free eccDNA codes (cfeccDNACodes) contains scripts for linearized cell-free eccDNA (cf-eccDNA) fragments analysis, cf-eccDNA feature extraction and cf-eccDNA feature-based cancer detection models.
-The functions provided in cf-eccDNACodes are illustrated as follows.
-![codes](https://github.com/user-attachments/assets/5770489b-7ad9-4814-b872-ed6bbe63fa00)
-
-
+Scripts for mapping cfDNA sequences, extracting discordant and split alignments, and analyzing split alignments.
 
 ## Getting Started
 ## Hardware requirements
