@@ -1,7 +1,0 @@
-python generate_dataset.py \
-    --pos_train "../model_inputs/pos_train.fasta" \
-    --pos_val "../model_inputs/pos_dev.fasta" \
-    --pos_test "../model_inputs/pos_test.fasta" \
-    --reference_genome "/path_to_hg38/hg38.fa" \
-    --output_dir "../dataset_output" \
-    --num_workers 16
